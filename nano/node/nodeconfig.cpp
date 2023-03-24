@@ -15,7 +15,7 @@ namespace
 char const * preconfigured_peers_key = "preconfigured_peers";
 char const * signature_checker_threads_key = "signature_checker_threads";
 char const * pow_sleep_interval_key = "pow_sleep_interval";
-std::string const default_live_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "livenet.banano.cc");
+std::string const default_live_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "peering.dogenano.io");
 std::string const default_beta_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "livenet-beta.banano.cc");
 std::string const default_test_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "peering-test.nano.org");
 }
@@ -60,12 +60,8 @@ nano::node_config::node_config (const std::optional<uint16_t> & peering_port_a, 
 		}
 		case nano::networks::nano_live_network:
 			preconfigured_peers.emplace_back (default_live_peer_network);
-			preconfigured_representatives.emplace_back ("36B3AFC042CCB5099DC163FA2BFE42D6E486991B685EAAB0DF73714D91A59400");
-			preconfigured_representatives.emplace_back ("29126049B40D1755C0A1C02B71646EEAB9E1707C16E94B47100F3228D59B1EB2");
-			preconfigured_representatives.emplace_back ("2514452A978F08D1CF76BB40B6AD064183CF275D3CC5D3E0515DC96E2112AD4E");
-			preconfigured_representatives.emplace_back ("2B0C65A063CEC23725E70DB2D39163C48020D66F7C8E0352C1DA8C853E14F8F5");
-			preconfigured_representatives.emplace_back ("6A164D74E73321CE4D6CD49D6948ECFAF4490FBE2BAAF3EBBF4C85F96AD637C0");
-			preconfigured_representatives.emplace_back ("490086E62B376C0EFBAA6AF9C41269EE7D723F98B4667416F075951E981E3F37");
+			preconfigured_representatives.emplace_back ("EB0A87D7889B6A90DA2256940EAB3428BC774786B3C5403C35D8F70AEFEA114A");
+			preconfigured_representatives.emplace_back ("4FE444C1F67C7E36CC5C96D25AD0E921C2EEB692A65AA1B932547A4325CF59BC");
 			break;
 		case nano::networks::nano_test_network:
 			preconfigured_peers.push_back (default_test_peer_network);
