@@ -15,9 +15,9 @@ namespace
 char const * preconfigured_peers_key = "preconfigured_peers";
 char const * signature_checker_threads_key = "signature_checker_threads";
 char const * pow_sleep_interval_key = "pow_sleep_interval";
-std::string const default_live_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "peering.dogenano.io");
-std::string const default_beta_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "livenet-beta.banano.cc");
-std::string const default_test_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "peering-test.nano.org");
+std::string const default_live_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "le-bunker.internet-box.ch");
+std::string const default_beta_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "le-bunker.internet-box.ch");
+std::string const default_test_peer_network = nano::get_env_or_default ("NANO_DEFAULT_PEER", "le-bunker.internet-box.ch");
 }
 
 nano::node_config::node_config (nano::network_params & network_params) :
@@ -60,8 +60,9 @@ nano::node_config::node_config (const std::optional<uint16_t> & peering_port_a, 
 		}
 		case nano::networks::nano_live_network:
 			preconfigured_peers.emplace_back (default_live_peer_network);
+			preconfigured_representatives.emplace_back ("99947F74490E1FF61422EADA52FDA720BB7B75CAE3CBBE5332BB2D73153C4715");
+			preconfigured_representatives.emplace_back ("0E4FAE9A61AC9A5339D1BE7AC8477D16832938D660047396EC84F0B47E5E7598");
 			preconfigured_representatives.emplace_back ("EB0A87D7889B6A90DA2256940EAB3428BC774786B3C5403C35D8F70AEFEA114A");
-			preconfigured_representatives.emplace_back ("4FE444C1F67C7E36CC5C96D25AD0E921C2EEB692A65AA1B932547A4325CF59BC");
 			break;
 		case nano::networks::nano_test_network:
 			preconfigured_peers.push_back (default_test_peer_network);
