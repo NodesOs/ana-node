@@ -199,10 +199,10 @@ public:
 		current_network (network_a),
 		work (work_),
 		principal_weight_factor (1000), // 0.1% A representative is classified as principal based on its weight and this factor
-		default_node_port (7079),
-		default_rpc_port (7080),
-		default_ipc_port (7081),
-		default_websocket_port (7082),
+		default_node_port (7175),
+		default_rpc_port (7176),
+		default_ipc_port (7177),
+		default_websocket_port (7178),
 		aec_loop_interval_ms (300), // Update AEC ~3 times per second
 		cleanup_period (default_cleanup_period),
 		keepalive_period (std::chrono::seconds (15)),
@@ -218,10 +218,10 @@ public:
 	{
 		if (is_live_network ())
 		{
-			default_node_port = 7079;
-			default_rpc_port = 7080;
-			default_ipc_port = 7081;
-			default_websocket_port = 7082;
+			default_node_port = 7175;
+			default_rpc_port = 7176;
+			default_ipc_port = 7177;
+			default_websocket_port = 7178;
 		}
 		else if (is_beta_network ())
 		{
