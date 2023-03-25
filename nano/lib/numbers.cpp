@@ -50,7 +50,7 @@ void nano::public_key::encode_account (std::string & destination_a) const
 		number_l >>= 5;
 		destination_a.push_back (account_encode (r));
 	}
-	destination_a.append ("_gdx"); // xdg_
+	destination_a.append ("_ana"); // ana_
 	std::reverse (destination_a.begin (), destination_a.end ());
 }
 
@@ -86,12 +86,12 @@ bool nano::public_key::decode_account (std::string const & source_a)
 	auto error (source_a.size () < 5);
 	if (!error)
 	{
-		auto xdg_prefix (source_a[0] == 'x' && source_a[1] == 'd' && source_a[2] == 'g' && (source_a[3] == '_' || source_a[3] == '-'));
+		auto ana_prefix (source_a[0] == 'a' && source_a[1] == 'n' && source_a[2] == 'a' && (source_a[3] == '_' || source_a[3] == '-'));
 		auto node_id_prefix = (source_a[0] == 'n' && source_a[1] == 'o' && source_a[2] == 'd' && source_a[3] == 'e' && source_a[4] == '_');
-		error = (xdg_prefix && source_a.size () != 64);
+		error = (ana_prefix && source_a.size () != 64);
 		if (!error)
 		{
-			if (xdg_prefix || node_id_prefix)
+			if (ana_prefix || node_id_prefix)
 			{
 				auto i (source_a.begin () + 4);
 				if (*i == '1' || *i == '3')
